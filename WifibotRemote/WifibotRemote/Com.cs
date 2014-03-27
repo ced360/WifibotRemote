@@ -24,7 +24,6 @@ namespace WifibotRemote
         {
             try
             {
-
                 return senderSock.Connected;
             }
             catch (Exception) { return false; }
@@ -81,18 +80,20 @@ namespace WifibotRemote
             }
             catch (Exception exc) { Console.WriteLine("Error send :\n{0}", exc); }
         }
-        public void Receive()
+        public byte[] Receive()
         {
             try
             {
                 // Receives data from a bound Socket. 
-                int bytesRec = senderSock.Receive(bytes);
-                Console.WriteLine("Received {0} bytes", bytesRec);
-                form.log("Received " + bytesRec + " bytes from server");
+                int bytesRec = 0;// senderSock.Receive(bytes);
+                int totalBytesRec = 0;
+                byte[] ret = new byte[100];
+                //Console.WriteLine("Received {0} bytes", bytesRec);
+                //form.log("Received " + bytesRec + " bytes from server");
                 // Converts byte array to string 
                 String theMessageToReceive = "";// = Encoding.Unicode.GetString(bytes, 0, bytesRec);
-                for (int i = 0; i < bytesRec; i++)
-                { theMessageToReceive += Convert.ToString(bytes[i]) + " "; }
+                //for (int i = 0; i < bytesRec; i++)
+                //{ theMessageToReceive += Convert.ToString(bytes[i]) + " "; }
                 // Continues to read the data till data isn't available 
                 while (senderSock.Available > 0)
                 {
@@ -102,13 +103,19 @@ namespace WifibotRemote
                     //theMessageToReceive += Encoding.ASCII.GetString(bytes, 0, bytesRec);// Encoding.Unicode.GetString(bytes, 0, bytesRec);
                     //theMessageToReceive += Convert.ToString(bytes[0]);//Encoding.ASCII.GetString(bytes, 0, bytesRec);// Encoding.Unicode.GetString(bytes, 0, bytesRec);
                     for (int i = 0; i < bytesRec; i++)
-                    { theMessageToReceive += Convert.ToString(bytes[i]) + " "; }
+                    {
+                        ret[i + totalBytesRec] = bytes[i];
+                        theMessageToReceive += Convert.ToString(bytes[i]) + " ";
+                    }
+
                 }
 
                 //tbReceivedMsg.Text = "The server reply: " + theMessageToReceive;
                 Console.WriteLine("Server reply: {0}", theMessageToReceive);
+
+                return ret;
             }
-            catch (Exception exc) { Console.WriteLine("error rcv: {0}", exc); }
+            catch (Exception exc) { Console.WriteLine("error rcv: {0}", exc); return null; }
         }
         public void Disconnect()
         {

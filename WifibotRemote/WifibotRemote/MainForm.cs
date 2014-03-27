@@ -30,8 +30,8 @@ namespace WifibotRemote
         /// Acces externe et variables paramettrées
         ///////////////
         //button
-        public delegate bool buttonVisibleDelagate(bool val);
-        public bool buttonVisible
+        /*public delegate bool buttonVisibleDelagate(bool val);
+       public bool buttonVisible
         {
             get
             {
@@ -64,7 +64,7 @@ namespace WifibotRemote
         private bool GetButton1Value(bool b)
         {
             return true;//return buttonConnect.Enabled;
-        }
+        }*/
         //connected
         public delegate bool connectedDelagate(bool val);
         public bool connected
@@ -185,6 +185,7 @@ namespace WifibotRemote
         private void keyProg()
         { 
             byte[] msg;
+            byte[] receivedDatas;
             if (simu)
             {
                 msg = new byte[2];
@@ -297,7 +298,7 @@ namespace WifibotRemote
                         { Thread.Sleep(10); }
 
                         com.Send(msg);
-                        com.Receive();
+                        receivedDatas=com.Receive();
 
                         //ComThread = new System.Threading.Thread(() => com.Send(msg));
                         //ComThread.Start();
