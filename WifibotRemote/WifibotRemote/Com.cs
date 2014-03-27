@@ -76,7 +76,7 @@ namespace WifibotRemote
                 int bytesSend = senderSock.Send(msg);
                 Console.WriteLine("Sended {0} bytes to server", bytesSend);
                 form.log("Sended " + bytesSend + " bytes to server");
-                Receive();
+                //Receive();
 
             }
             catch (Exception exc) { Console.WriteLine("Error send :\n{0}", exc); }

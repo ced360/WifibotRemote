@@ -19,12 +19,13 @@ namespace WifibotRemote
         ////////////////
         /// Variables
         ///////////////
-        volatile bool simu = true;
+        volatile bool simu = false;
         Com com;
         bool _connected = false;
         volatile List<String> keys=new List<String>();
         System.Threading.Thread ComThread;
         Thread keyThread = null;
+        bool _playingvideo = false;
         ////////////////
         /// Acces externe et variables paramettrées
         ///////////////
@@ -90,7 +91,7 @@ namespace WifibotRemote
                     {
                         //menu.Items["Connection"].Text = "Déconnecter";
                         
-                        ComThread = new System.Threading.Thread(() => com.Connect("192.168.1.96", 15020));
+                        ComThread = new System.Threading.Thread(() => com.Connect("192.168.1.106", 15020));
                         ComThread.Start();
                         while (ComThread.IsAlive)
                         {
@@ -295,8 +296,11 @@ namespace WifibotRemote
                         while (ComThread.IsAlive)
                         { Thread.Sleep(10); }
 
-                        ComThread = new System.Threading.Thread(() => com.Send(msg));
-                        ComThread.Start();
+                        com.Send(msg);
+                        com.Receive();
+
+                        //ComThread = new System.Threading.Thread(() => com.Send(msg));
+                        //ComThread.Start();
                             //(new System.Threading.Thread(() => com.Send(msg))).Start();
                         //}
                     }
@@ -383,10 +387,13 @@ namespace WifibotRemote
         private void afficherVideoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //axVLCPlugin21.Hide();
-            axVLCPlugin21.FullscreenEnabled = false;
+
+            axVLCPlugin21.FullscreenEnabled = true;
             var uri = new Uri(@"http://192.168.1.106:8080/?action=stream");
             var converted = uri.AbsoluteUri;
             axVLCPlugin21.playlist.add(converted);
+            axVLCPlugin21.playlist.play();
+
         }
 
     }

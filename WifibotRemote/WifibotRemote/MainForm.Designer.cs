@@ -35,11 +35,11 @@
             this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connecterdeconnecterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afficherVideoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelLog = new System.Windows.Forms.Label();
             this.axVLCPlugin21 = new AxAXVLC.AxVLCPlugin2();
-            this.mediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afficherVideoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axVLCPlugin21)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +94,21 @@
             this.configurationToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
             this.configurationToolStripMenuItem1.Text = "Configuration";
             // 
+            // mediaToolStripMenuItem
+            // 
+            this.mediaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.afficherVideoToolStripMenuItem});
+            this.mediaToolStripMenuItem.Name = "mediaToolStripMenuItem";
+            this.mediaToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.mediaToolStripMenuItem.Text = "Media";
+            // 
+            // afficherVideoToolStripMenuItem
+            // 
+            this.afficherVideoToolStripMenuItem.Name = "afficherVideoToolStripMenuItem";
+            this.afficherVideoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.afficherVideoToolStripMenuItem.Text = "Afficher video";
+            this.afficherVideoToolStripMenuItem.Click += new System.EventHandler(this.afficherVideoToolStripMenuItem_Click);
+            // 
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
@@ -114,23 +129,9 @@
             this.axVLCPlugin21.Location = new System.Drawing.Point(0, 27);
             this.axVLCPlugin21.Name = "axVLCPlugin21";
             this.axVLCPlugin21.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axVLCPlugin21.OcxState")));
-            this.axVLCPlugin21.Size = new System.Drawing.Size(491, 283);
+            this.axVLCPlugin21.Size = new System.Drawing.Size(490, 283);
             this.axVLCPlugin21.TabIndex = 5;
-            // 
-            // mediaToolStripMenuItem
-            // 
-            this.mediaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.afficherVideoToolStripMenuItem});
-            this.mediaToolStripMenuItem.Name = "mediaToolStripMenuItem";
-            this.mediaToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.mediaToolStripMenuItem.Text = "Media";
-            // 
-            // afficherVideoToolStripMenuItem
-            // 
-            this.afficherVideoToolStripMenuItem.Name = "afficherVideoToolStripMenuItem";
-            this.afficherVideoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.afficherVideoToolStripMenuItem.Text = "Afficher video";
-            this.afficherVideoToolStripMenuItem.Click += new System.EventHandler(this.afficherVideoToolStripMenuItem_Click);
+            this.axVLCPlugin21.TabStop = false;
             // 
             // MainForm
             // 
