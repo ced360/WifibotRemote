@@ -163,6 +163,19 @@ namespace WifibotRemote
             }
 
         }
+
+        public void displayData(byte[] _in)
+        {
+            if (!InvokeRequired)
+            {
+                lbVitesseGauche.Text = "Vitesse gauche : " + ((int)(_in[1]<<8 + _in[0])).ToString();
+            }
+            else
+            {
+                Invoke(new Action(() => displayData(_in)));
+            }
+
+        }
         ////////////////
         /// General
         ///////////////
@@ -185,7 +198,7 @@ namespace WifibotRemote
         private void keyProg()
         { 
             byte[] msg;
-            byte[] receivedDatas;
+            //byte[] receivedDatas;
             if (simu)
             {
                 msg = new byte[2];
@@ -298,7 +311,7 @@ namespace WifibotRemote
                         { Thread.Sleep(10); }
 
                         com.Send(msg);
-                        receivedDatas=com.Receive();
+                        displayData(com.Receive());
 
                         //ComThread = new System.Threading.Thread(() => com.Send(msg));
                         //ComThread.Start();

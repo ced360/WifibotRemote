@@ -40,6 +40,7 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelLog = new System.Windows.Forms.Label();
             this.axVLCPlugin21 = new AxAXVLC.AxVLCPlugin2();
+            this.lbVitesseGauche = new System.Windows.Forms.Label();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axVLCPlugin21)).BeginInit();
             this.SuspendLayout();
@@ -129,15 +130,25 @@
             this.axVLCPlugin21.Location = new System.Drawing.Point(0, 27);
             this.axVLCPlugin21.Name = "axVLCPlugin21";
             this.axVLCPlugin21.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axVLCPlugin21.OcxState")));
-            this.axVLCPlugin21.Size = new System.Drawing.Size(490, 283);
+            this.axVLCPlugin21.Size = new System.Drawing.Size(491, 277);
             this.axVLCPlugin21.TabIndex = 5;
             this.axVLCPlugin21.TabStop = false;
+            // 
+            // lbVitesseGauche
+            // 
+            this.lbVitesseGauche.AutoSize = true;
+            this.lbVitesseGauche.Location = new System.Drawing.Point(12, 307);
+            this.lbVitesseGauche.Name = "lbVitesseGauche";
+            this.lbVitesseGauche.Size = new System.Drawing.Size(86, 13);
+            this.lbVitesseGauche.TabIndex = 6;
+            this.lbVitesseGauche.Text = "Vitesse gauche :";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 361);
+            this.Controls.Add(this.lbVitesseGauche);
             this.Controls.Add(this.axVLCPlugin21);
             this.Controls.Add(this.labelLog);
             this.Controls.Add(this.menu);
@@ -168,6 +179,7 @@
         private AxAXVLC.AxVLCPlugin2 axVLCPlugin21;
         private System.Windows.Forms.ToolStripMenuItem mediaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afficherVideoToolStripMenuItem;
+        private System.Windows.Forms.Label lbVitesseGauche;
     }
 }
 
