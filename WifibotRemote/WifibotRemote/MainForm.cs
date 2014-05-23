@@ -100,7 +100,7 @@ namespace WifibotRemote
                         if (com.socketConnected())
                         {
                             _connected = true;
-                            log("Connected to " + "192.168.1.96");
+                            log("Connected to " + "192.168.1.106");
                         }
                         else
                         {
@@ -400,7 +400,6 @@ namespace WifibotRemote
 
         private void afficherVideoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //axVLCPlugin21.Hide();
 
             axVLCPlugin21.FullscreenEnabled = true;
             var uri = new Uri(@"http://192.168.1.106:8080/?action=stream");
